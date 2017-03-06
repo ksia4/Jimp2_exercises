@@ -1,11 +1,11 @@
-project(factorial)
+project(palindrome)
 
-set(HEDEAR_FILES Factorial.h)
-set(SOURCE_FILES Factorial.cpp)
+set(HEDEAR_FILES Palindrome.h)
+set(SOURCE_FILES Palindrome.cpp)
 
-add_library(libfactorial STATIC Palindrome)
-target_include_directories(libfactorial PUBLIC .)
+add_library(libpalindrome STATIC ${SOURCE_FILES})
+target_include_directories(libpalindrome PUBLIC .)
 
-add_executable(factorial Palindrome main.cpp)
+add_executable(palindrome ${SOURCE_FILES} main.cpp)
 
-target_link_libraries(factorial libfactorial)
+target_link_libraries(palindrome libfactorial)
