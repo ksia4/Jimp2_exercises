@@ -25,21 +25,36 @@ namespace nets{
 
         std::regex wzor ("\\{{2}([^{}]{1,})\\}{2}");
         std::smatch matches;
+        int napis_len;
+        double roznica = 0;
+        int last_beg;
         std::string newtext = text_;
-        int wons = -1;
+        std::vector<int> zmienione;
+        bool achtung = true;
         for(const auto & mapel : model) {
             std::string help = "";
             int beg = 0;
             int end = 0;
+            achtung = true;
             for (int i = 0; i < newtext.length(); ++i) {
-                if (newtext[i] == '{' && newtext[i + 1] == '{' && newtext[i + 2] != '{' && i!=wons) {
-                    std::cout<<"bo wons wynosi: "<<wons<<std::endl;
+                for(auto k : zmienione){
+                    if(k>last_beg)
+                        zmienione[0] = k + roznica;
+                }
+                last_beg = 999;
+                roznica = 0;
+                if (newtext[i] == '{' && newtext[i + 1] == '{' && newtext[i + 2] != '{') {
                     beg = i;
+                    achtung = true;
+                    for(auto j : zmienione){
+                        if(j == beg)
+                            achtung = false;
+                    }
                 }
                 if (newtext[i] == '}' && newtext[i - 1] == '}' && newtext[i - 2] != '}') {
                     end = i;
                 }
-                if (end > beg) {
+                if (end > beg && achtung == true) {
                     help = "";
                     for (int i = beg + 2; i <= end - 2; ++i) {
                         if (newtext[i] == ' ') {
@@ -54,49 +69,46 @@ namespace nets{
                     }
                 }
                 if(end > beg && help == mapel.first){
-                    for(int i =0; i<end - beg + 1; ++i){
-                    }
+                    napis_len = newtext.length();
                     newtext.erase(beg, end - beg + 1);
                     newtext.insert(beg, mapel.second);
+                    last_beg = beg;
+                    zmienione.push_back(beg);
                     help = "";
-                    wons = beg;
-                    std::cout<<"Ustawilem wonsa na: "<<wons<<std::endl;
+                    roznica = newtext.length()- napis_len;
                 }
 
 
 
             }
-            std::cout << "A to jest aktualny tekst: " << newtext << std::endl;
         }
-        std::cout<<"dla upewnienia nasz tekst: "<<newtext << std::endl;
         int beg = 0;
         int end = 0;
         for (int i = 0; i < newtext.length(); ++i) {
             if (newtext[i] == '{' && newtext[i + 1] == '{' && newtext[i + 2] != '{') {
                 beg = i;
-                std::cout<<"Znalazlem poczatek! beg = "<<beg<<std::endl;
+                achtung = true;
+                for(auto j : zmienione) {
+                    if (j == beg)
+                        achtung = false;
+                }
             }
             if (newtext[i] == '}' && newtext[i - 1] == '}' && newtext[i - 2] != '}') {
                 end = i;
-                std::cout<<"Znalazlem koniec! end = "<<end<<std::endl;
             }
             if (end > beg) {
-                std::cout<<"Sprawdzam co ma w srodku"<<std::endl;
                 for (int i = beg + 2; i <= end - 2; ++i) {
                     if (newtext[i] == ' ') {
                         end = 0;
                         beg = 0;
-                        std::cout<<"O nie! to spacja. Ustawilem end = "<<end<<" i beg = "<<beg<<std::endl;
                         break;
                     }
                 }
             }
-            if(end > beg){
-                std::cout<<"Teraz wytne od "<<beg<<"o tyle znakow "<<end-beg+1<<std::endl;
+            if(end > beg && achtung != false){
                 newtext.erase(beg, end - beg + 1);
                 beg = 0;
                 end = 0;
-                std::cout<<"Wyciolem! to ja: "<<newtext<<std::endl;
             }
         }
         return newtext;
