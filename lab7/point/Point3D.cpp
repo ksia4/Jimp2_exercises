@@ -1,5 +1,5 @@
 //
-// Created by usuryjskij on 26.04.17.
+// Created by Kasia i Kuba on 26.04.17.
 //
 
 #include "Point3D.h"

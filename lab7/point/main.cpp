@@ -34,6 +34,6 @@ int main(void){
     Point3D p3d(1,2,3);
     std::cout << p3d << std::endl;
 
-    
+
     return 0;
 }
