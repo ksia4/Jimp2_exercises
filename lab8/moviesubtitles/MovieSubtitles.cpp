@@ -1,5 +1,5 @@
 //
-// Created by usuryjskij on 10.05.17.
+// Created by Kasia i Kuba on 10.05.17.
 //
 
 #include "MovieSubtitles.h"
