@@ -1,5 +1,5 @@
 //
-// Created by usuryjskij on 10.05.17.
+// Created by Kasia i Kuba on 10.05.17.
 //
 
 #ifndef JIMP_EXERCISES_MOVIESUBTITLES_H
