@@ -8,8 +8,9 @@
 #include <Prowiant.h>
 
 class TanieWino: public Prowiant{
+public:
     TanieWino(int pojemnosc, float procenty, float masaalko):Prowiant(pojemnosc, procenty,masaalko){};
-    TanieWino():Prowiant(1000,15,96){};
+    TanieWino():Prowiant(700,15,67){};
 };
 
 #endif //JIMP_EXERCISES_TANIEWINO_H

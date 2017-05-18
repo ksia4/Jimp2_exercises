@@ -8,8 +8,9 @@
 #include <Prowiant.h>
 
 class Tymbark: public Prowiant{
+public:
     Tymbark(int pojemnosc, float procenty, float masaalko):Prowiant(pojemnosc, procenty, masaalko){};
-    Tymbark():Prowiant(1000,0,0){};
+    Tymbark():Prowiant(500,0,0){};
 };
 
 #endif //JIMP_EXERCISES_TYMBARK_H

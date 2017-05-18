@@ -21,11 +21,3 @@ Plecak::Plecak(int objetosc) {
 Plecak::~Plecak() {
 
 }
-
-bool Plecak::wybor(Prowiant butelka) {
-    if(artefakty_+butelka.pojemnosc_ > objetosc_){
-        return false;
-    }
-    if // sprawdzanie dawki alko
-
-}

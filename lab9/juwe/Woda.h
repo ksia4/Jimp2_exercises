@@ -7,6 +7,7 @@
 #include <Prowiant.h>
 
 class Woda: public Prowiant{
+public:
     Woda(int pojemnosc, float procenty, float masaalko):Prowiant(pojemnosc, procenty, masaalko){};
     Woda():Prowiant(500,0,0){};
 };
