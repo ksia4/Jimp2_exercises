@@ -9,7 +9,7 @@
 
 class Tymbark: public Prowiant{
 public:
-    Tymbark(int pojemnosc, float procenty, float masaalko):Prowiant(pojemnosc, procenty, masaalko){};
+    Tymbark(int pojemnosc, int procenty, float masaalko):Prowiant(pojemnosc, procenty, masaalko){};
     Tymbark():Prowiant(500,0,0){};
 };
 

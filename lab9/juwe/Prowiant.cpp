@@ -10,7 +10,7 @@ Prowiant::Prowiant() {
     masaalko_ = 0;
 }
 
-Prowiant::Prowiant(int pojemnosc, float procenty, float masaalko) {
+Prowiant::Prowiant(int pojemnosc, int procenty, float masaalko) {
     pojemnosc_ = pojemnosc;
     procenty_ = procenty;
     masaalko_ = masaalko;

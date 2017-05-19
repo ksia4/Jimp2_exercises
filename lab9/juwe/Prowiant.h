@@ -9,11 +9,11 @@ class Prowiant{
 public:
     //pojemnosc, procenty
     Prowiant();
-    Prowiant(int pojemnosc, float procenty, float masaalko);
+    Prowiant(int pojemnosc, int procenty, float masaalko);
     ~Prowiant();
 
     int pojemnosc_;
-    float procenty_;
+    int procenty_;
     float masaalko_;
 
 };

@@ -8,7 +8,7 @@
 
 class Wodka: public Prowiant{
 public:
-    Wodka(int pojemnosc, float procenty, float masaalko):Prowiant(pojemnosc, procenty,masaalko){};
+    Wodka(int pojemnosc, int procenty, float masaalko):Prowiant(pojemnosc, procenty,masaalko){};
     Wodka():Prowiant(500,40,160){};
 };
 

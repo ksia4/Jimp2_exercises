@@ -4,6 +4,7 @@
 
 #include "Student.h"
 #include <iostream>
+#include <Plecak.h>
 
 Student::Student() {
     double death = 0.5; //0,5 to wg Wikipedii dawka smiertelna, ale przeciez sa juwenalia :)
@@ -34,6 +35,49 @@ void Student::Pakuj(Plecak &plecak, Prowiant &towar) {
 }
 
 void Student::Sortuj(Plecak *wszystko) {
+    int piwa = 0;
+    int wina = 0;
+    int wodki = 0;
+    int bezalko = 0;
 
+    for(auto n : wszystko->picie_){
+        if(n.procenty_ == 5)
+            piwa +=1;
+        else if(n.procenty_ == 15)
+            wina +=1;
+        else if(n.procenty_ == 40)
+            wodki +=1;
+        else
+            bezalko += 1;
+    }
+    int piwaa = piwa;
+    int winaa = wina;
+    int wodkia = wodki;
+    int bezalkoa = bezalko;
+    int alles = piwa + wina + wodki + bezalko;
+    Prowiant tab[20];
+    for(auto n : wszystko->picie_){
+        switch (n.procenty_){
+            case 5:
+                tab[piwa-1] = n;
+                piwa--;
+                break;
+            case 15:
+                tab[piwaa+wina-1] = n;
+                wina--;
+                break;
+            case 40:
+                tab[piwaa+winaa+wodki-1] = n;
+                wodki--;
+                break;
+            case 0:
+                tab[piwaa+winaa+wodkia+bezalko-1];
+                bezalko--;
+                break;
+        }
+    }
+    for(int i=0 ; i<20 ; ++i){
+        std::cout << "Posortowane: " << tab[i] << std::endl;
+    }
 
 }

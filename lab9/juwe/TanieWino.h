@@ -9,7 +9,7 @@
 
 class TanieWino: public Prowiant{
 public:
-    TanieWino(int pojemnosc, float procenty, float masaalko):Prowiant(pojemnosc, procenty,masaalko){};
+    TanieWino(int pojemnosc, int procenty, float masaalko):Prowiant(pojemnosc, procenty,masaalko){};
     TanieWino():Prowiant(700,15,67){};
 };
 
