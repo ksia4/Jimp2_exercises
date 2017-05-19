@@ -11,7 +11,6 @@ Student::Student() {
     int hours = 12;
     masa_ = 70;
     mozliwosci_ =(((0.017*hours)+death)*0.58*masa_)*10/(0.806*1.2);
-    std::cout << "Mozliwosci studenta " << mozliwosci_ << " gramow czystego alkoholu" << std::endl;
 }
 
 Student::~Student() {
@@ -39,6 +38,7 @@ void Student::Sortuj(Plecak *wszystko) {
     int wina = 0;
     int wodki = 0;
     int bezalko = 0;
+    std::vector<Prowiant> posortowany;
 
     for(auto n : wszystko->picie_){
         if(n.procenty_ == 5)
@@ -71,13 +71,14 @@ void Student::Sortuj(Plecak *wszystko) {
                 wodki--;
                 break;
             case 0:
-                tab[piwaa+winaa+wodkia+bezalko-1];
+                tab[piwaa+winaa+wodkia+bezalko-1] = n;
                 bezalko--;
                 break;
         }
     }
-    for(int i=0 ; i<20 ; ++i){
-        std::cout << "Posortowane: " << tab[i] << std::endl;
+    for(int i=0 ; i<alles ; ++i){
+        posortowany.push_back(tab[i]);
     }
+    wszystko->picie_ = posortowany;
 
 }
