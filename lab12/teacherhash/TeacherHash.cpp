@@ -1,5 +1,5 @@
 //
-// Created by usuryjskij on 09.06.17.
+// Created by Kasia I kuba on 09.06.17.
 //
 
 #include "TeacherHash.h"
