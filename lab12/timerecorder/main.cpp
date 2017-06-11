@@ -1,4 +1,4 @@
 //
-// Created by usuryjskij on 09.06.17.
+// Created by Kasia i Kuba on 09.06.17.
 //
 
